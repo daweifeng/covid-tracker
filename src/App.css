@@ -1,38 +1,56 @@
 .App {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App h1 {
+  margin: 12px;
+  width: 100%;
+  font-size: 48px;
+  word-wrap: break-word;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.latest-day {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.new-cases-card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  width: 350px;
+  margin: auto;
+  background-color: #F05C5C;
+  border-radius: 36px;
   color: white;
+  box-shadow: 0px 2px 30px #F05C5C;
+  padding: 1rem 0;
 }
 
-.App-link {
-  color: #61dafb;
+.new-cases-card .card-title {
+  width: 100px;
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.new-cases-card .number {
+  font-weight: 700;
+  font-size: 48px;
+  padding-right: 1rem;
+}
+
+.new-cases-card .card-arrow {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.graph-card {
+  border-radius: 36px 36px 0 0;
+  margin-top: 24px;
+  background-color: #181926;
+  flex-grow: 1;
 }
