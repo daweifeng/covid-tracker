@@ -25,7 +25,7 @@ function App() {
     console.error(error)
     return <div>Failed to get data</div>
   }
-  if (status !== RequestStatus.FETCHING) {
+  if (status === RequestStatus.FETCHING) {
     return (
       <div className="loading">
         <div className="logo spinning">
