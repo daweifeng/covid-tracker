@@ -40,7 +40,6 @@ export const useCovidData = (lat: number, long: number, ts: number) => {
     fetch(`${API_URL}/confirmedSevenDay?lat=${lat}&long=${long}&ts=${ts}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         if(data.length === 0) {
           setStatus(RequestStatus.FAILED);
           throw new Error('No data');
@@ -56,8 +55,11 @@ export const useCovidData = (lat: number, long: number, ts: number) => {
         for (let day = 0; day<7; day++) {
           const theDay = new Date(yesterday);
           theDay.setDate(yesterday.getDate() - day);
+          const theDayBefore = new Date(theDay);
+          theDayBefore.setDate(theDay.getDate() - 1);
           const theDayStr = `${theDay.getUTCMonth() + 1}/${theDay.getUTCDate()}/${theDay.getUTCFullYear() - 2000}`;
-          if (!closestLocationData[theDayStr]) {
+          const theDayBeforeStr = `${theDayBefore.getUTCMonth() + 1}/${theDayBefore.getUTCDate()}/${theDayBefore.getUTCFullYear() - 2000}`;
+          if (!closestLocationData[theDayStr] || !closestLocationData[theDayBeforeStr]) {
             continue;
           }
           if (shouldCalNewCases) {
@@ -68,14 +70,17 @@ export const useCovidData = (lat: number, long: number, ts: number) => {
             latestDay = theDayStr;
             shouldCalNewCases = true;
           }
-          historyCases.push({ [theDayStr]: parseInt(closestLocationData[theDayStr]) });
+          historyCases.push({ 
+            date: `${theDay.getUTCMonth() + 1}/${theDay.getUTCDate()}`,
+            newCases: parseInt(closestLocationData[theDayStr]) - parseInt(closestLocationData[theDayBeforeStr])
+          });
         }
         setCovidData({
           county: closestLocationData.Admin2,
           state: closestLocationData.Province_State,
           latestDay: latestDay,
           newCases,
-          historyCases
+          historyCases: historyCases.reverse()
         })
         setStatus(RequestStatus.OK);
       })
