@@ -72,3 +72,42 @@
   width: 350px;
   margin: auto;
 }
+
+.allow-geo {
+  position: absolute;
+  text-align: center;
+  font-weight: 700;
+  width: 300px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading {
+  text-align: center;
+  font-weight: 700;
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  margin: auto;
+  width: 100px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.spinning {
+  animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg)}
+  to { transform: rotate(360deg)}
+}

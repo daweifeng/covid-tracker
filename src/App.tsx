@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComposedChart, Bar, XAxis, Line, Tooltip, LabelList } from 'recharts';
+import logo from './logo.svg';
 import './App.css';
 import { useGeoLocation, useCovidData, RequestStatus } from './hooks';
 
@@ -12,8 +13,11 @@ function App() {
 
   if (geoError) {
     return (
-      <div>
-        Please allow geolocation
+      <div className="allow-geo">
+        <div className="logo">
+        <img src={logo}/>
+        </div>
+        Please allow the app to use your geolocation for getting the latest data!
       </div>
     )
   }
@@ -21,8 +25,15 @@ function App() {
     console.error(error)
     return <div>Failed to get data</div>
   }
-  if (status === RequestStatus.FETCHING) {
-    return <div>Loading</div>
+  if (status !== RequestStatus.FETCHING) {
+    return (
+      <div className="loading">
+        <div className="logo spinning">
+          <img src={logo}/>
+        </div>
+        Loading..
+      </div>
+    );
   }
 
   return (

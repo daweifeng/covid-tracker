@@ -41,8 +41,8 @@ export const useCovidData = (lat: number, long: number, ts: number) => {
       .then(response => response.json())
       .then(data => {
         if(data.length === 0) {
-          setStatus(RequestStatus.FAILED);
-          throw new Error('No data');
+          setStatus(RequestStatus.FETCHING);
+          return;
         }
         const closestLocationData = data[0];
         const yesterday = new Date(ts);
