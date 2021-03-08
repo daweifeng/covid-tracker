@@ -24,7 +24,7 @@ function App() {
   if (status === RequestStatus.FETCHING) {
     return <div>Loading</div>
   }
-  console.log(covidData.historyCases)
+
   return (
     <div className="App">
       <h1>{covidData.county}, {covidData.state}</h1>
