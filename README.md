@@ -15,6 +15,10 @@
 
 - Backend is powered by my other project: [Covid Globe](https://github.com/daweifeng/covid-globe)
 
+## How To Install
+
+The app is curretly published on Google Chrome Web Store. Click here to add it to your browser: [Add to browser](https://chrome.google.com/webstore/detail/covid-tracker/kdebngmlbblmdebjbgaboobgpeieophl?hl=en-US)
+
 ## Available Scripts
 
 In the project directory, you can run:
