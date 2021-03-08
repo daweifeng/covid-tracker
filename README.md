@@ -9,7 +9,9 @@
 
 # Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This project is the frontend as a chrome extenstion. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+- Backend is powered by my other project: [Covid Globe](https://github.com/daweifeng/covid-globe)
 
 ## Available Scripts
 
