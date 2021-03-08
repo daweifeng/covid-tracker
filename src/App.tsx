@@ -47,7 +47,7 @@ function App() {
               right: 12
             }}
             width={350}
-            height={200}
+            height={230}
             data={covidData.historyCases}
           >
             <XAxis dataKey="date" />

@@ -56,7 +56,6 @@
 }
 
 .graph-card .title {
-  width: 300px;
   margin-top: 12px;
   font-size: 24px;
   color: #fff;
@@ -64,7 +63,7 @@
 }
 
 .graph-card .title hr {
-  width: 50%;
+  width: 30%;
   border-color: #F05C5C;
   background-color: #F05C5C;
 }
